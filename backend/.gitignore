@@ -1,0 +1,7 @@
+.idea/
+.vscode/
+
+# Python folders
+__pycache__/
+*.sqlite3
+.env
