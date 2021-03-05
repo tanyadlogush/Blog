@@ -13,7 +13,7 @@ class Post(models.Model):
 
     def __str__(self):
         author =(
-            f"{self.first_name} {self.author.last_name}"
+            f"{self.author.first_name} {self.author.last_name}"
             if self.author.first_name and self.author.last_name
             else self.author)
         return self.title
