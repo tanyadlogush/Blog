@@ -1,12 +1,20 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
+from django.views.generic import ListView
+from .models import Post, Comment
 
-# Create your views here.
-from django.http import HttpResponse
+# posts = [
+#     {'title': 'How to learn VIM', 'author': 'W. Vincent', 'data': '12315'},
+#     {'title': 'How to learn Python', 'author': 'Guido van Rossum', 'data': '123145'},
+#     {'title': 'How to learn Rust', 'author': 'Fedor', 'data': '1234515'},
+# ]
+
+class HomeView(ListView):
+    """Base home view."""
+    template_name = 'core/home.html'
+    queryset = Post.objects.values('title', 'body')
 
 
-def home(request):
-    return HttpResponse('Home page!!!')
+class AboutView(TemplateView):
+    """Base about view."""
+    template_name = 'core/about.html'
 
-
-def about(request):
-    return HttpResponse('About page!!!')

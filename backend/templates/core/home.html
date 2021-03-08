@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!--<h1>Home page</h1>-->
+<!--<h2>Posts</h2>-->
+<!--{% for post in object_list %}-->
+<!--&lt;!&ndash; {{posts}} &ndash;&gt;-->
+<!--<ul>-->
+<!--    {% for key, value in post.items %}-->
+<!--        <b>{{key}}:</b>  {{value}}-->
+<!--    </br>-->
+<!--    {% endfor %}-->
+<!--</ul>-->
+<!--{% endfor %}-->
+
+<div class="content">
+    <div class="posts">
+
+        {% for post in object_list %}
+
+        <div class="post">
+            <img src="{% static 'imagine/post.jpg' %}">
+            <br/>
+            <p class="post-title">{{post.title}}</p>
+            <p class="post-body">{{post.body}}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

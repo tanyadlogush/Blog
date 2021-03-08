@@ -18,6 +18,6 @@ class CommentInLine(admin.TabularInline):
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    search_fields = ('title', )
+    search_fields = ('title', 'body')
     list_filter = ('author',)
     inLines = (CommentInLine,)
