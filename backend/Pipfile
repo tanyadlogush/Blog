@@ -13,6 +13,7 @@ six = "==1.15.0"
 virtualenv = "==20.4.2"
 virtualenv-clone = "==0.5.4"
 django = "*"
+pillow = "==8.0"
 
 [dev-packages]
 

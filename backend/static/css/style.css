@@ -59,8 +59,15 @@ p {
     padding: 1%;
 }
 
+.image_wrapper {
+    width: 98%;
+}
 
-.blablabla{
+.image_wrapper img {
+    width: 100%;
+}
+
+.about_text{
     background-color: #abafbb;
     display: flex;
     flex-direction: column;

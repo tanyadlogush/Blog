@@ -1,15 +1,14 @@
 from django.contrib import admin
+from .models import Post, Comment
 
 # Register your models here.
-
-from .models import Post, Comment
 
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    search_fields = ('text',)
-    list_filter = ('author', 'post')
-    list_display = ('__str__', 'author', 'post')
+    search_fields = ('text', )
+    list_filter = ('author', 'post', 'published_date')
+    list_display = ('__str__', 'author', 'post', 'published_date')
 
 
 class CommentInLine(admin.TabularInline):
@@ -18,6 +17,7 @@ class CommentInLine(admin.TabularInline):
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    search_fields = ('title', 'body')
-    list_filter = ('author',)
-    inLines = (CommentInLine,)
+    search_fields = ('title', 'body', )
+    list_filter = ('author', 'published_date')
+    list_display = ('__str__', 'author', 'published_date')
+    inlines = (CommentInLine,)

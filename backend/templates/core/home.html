@@ -20,12 +20,15 @@
 
         {% for post in object_list %}
 
-        <div class="post">
-            <img src="{% static 'imagine/post.jpg' %}">
-            <br/>
-            <p class="post-title">{{post.title}}</p>
-            <p class="post-body">{{post.body}}</p>
-        </div>
+            <div class="post">
+                <div class="image_wrapper">
+                    <img src="{{ post.image.url }}" alt="">
+                </div>
+                <p class="post-title">{{post.title}}</p>
+                <br/>
+                <p class="post-body">{{post.body}}</p>
+
+            </div>
         {% endfor %}
     </div>
 </div>

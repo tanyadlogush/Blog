@@ -11,7 +11,8 @@ from .models import Post, Comment
 class HomeView(ListView):
     """Base home view."""
     template_name = 'core/home.html'
-    queryset = Post.objects.values('title', 'body')
+    queryset = Post.objects.filter().order_by('-published_date')  # order_by('title')
+    # queryset = Post.objects.values('title', 'body', 'image')
 
 
 class AboutView(TemplateView):

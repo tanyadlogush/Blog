@@ -4,4 +4,8 @@
 # Python folders
 __pycache__/
 *.sqlite3
+
 .env
+
+# Project files/dirs
+media/
