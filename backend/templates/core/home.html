@@ -3,33 +3,29 @@
 
 {% block content %}
 
-<!--<h1>Home page</h1>-->
-<!--<h2>Posts</h2>-->
-<!--{% for post in object_list %}-->
-<!--&lt;!&ndash; {{posts}} &ndash;&gt;-->
-<!--<ul>-->
-<!--    {% for key, value in post.items %}-->
-<!--        <b>{{key}}:</b>  {{value}}-->
-<!--    </br>-->
-<!--    {% endfor %}-->
-<!--</ul>-->
-<!--{% endfor %}-->
+<!-- МНТ-->
+{% block not_auth_content %}
+<!-- МНТ-->
 
-<div class="content">
     <div class="posts">
-
         {% for post in object_list %}
-
             <div class="post">
+                <a href="{% url 'core:post_detail' id=post.id%}">
                 <div class="image_wrapper">
-                    <img src="{{ post.image.url }}" alt="">
+                    {% if post.image %}
+                        <img src="{{ post.image.url }}" alt="здесь должна быть картинка">
+                    {% endif %}
                 </div>
                 <p class="post-title">{{post.title}}</p>
                 <br/>
                 <p class="post-body">{{post.body}}</p>
-
+            </a>
             </div>
         {% endfor %}
     </div>
-</div>
+
+<!-- МНТ-->
+{% endblock not_auth_content %}
+<!-- МНТ-->
+
 {% endblock content %}

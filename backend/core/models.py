@@ -10,7 +10,9 @@ class Post(models.Model):
     body = models.TextField()
     image = models.ImageField(upload_to='posts/', null=True, blank=True)  # height_field=None, width_field=None, max_length=100
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
-    published_date = models.DateTimeField(blank=True, null=True)
+    # published_date = models.DateTimeField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         author =(
