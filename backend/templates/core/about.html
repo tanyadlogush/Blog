@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+{% block not_auth_content %}
         <div class="content">
             <div class="posts">
                 <div class="about_text">
@@ -30,5 +31,5 @@
                 <img class="picture2" src="{% static 'imagine/avatar2.png' %}">
             </div>
         </div>
-
+{% endblock not_auth_content %}
 {% endblock content %}

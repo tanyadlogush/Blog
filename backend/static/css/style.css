@@ -38,9 +38,8 @@ li {
 
 a.header_logout{
     padding: 7px;
-    color:red;
     margin:20px;
-    background-color: #fff;
+    background-color: #fcead1;
     border-radius: 5px;
 }
 
@@ -52,10 +51,14 @@ a.header_button{
     border-radius: 5px;
 }
 
+.content{
+    flex-grow:1;
+}
+
 .create_post_bnt {
     padding: 7px;
     margin-right: 20px;
-    background-color: #fff;
+    background-color: #fcead1;
     border-radius: 5px;
 }
 .picture{
@@ -117,6 +120,10 @@ a.header_button{
     margin: 3%;
 }
 
+.post_detail_picture{
+   width:33%;
+}
+
 .post-title {
     font-size: 22px;
 }
@@ -124,9 +131,25 @@ a.header_button{
     font-size: 16px;
 }
 
+.post_detail{
+    padding:20px;
+}
+
+.post_comments{
+    font-size:16px;
+}
+
+.delete_post{
+    padding: 3px;
+    margin-left:26.5%;
+    background-color: #fcead1;
+    border-radius: 5px;
+}
+
 .footer {
     display: flex;
     justify-content: center;
     padding: 10px;
     background-color: #d4d7e3;
+    font-size: 16px;
 }

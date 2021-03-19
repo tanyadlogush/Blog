@@ -3,15 +3,7 @@
 
 {% block content %}
 
-<!--MHT-->
-{% if user == post.author or user.username == 'admin' %}
-<!--MHT-->
 
-<a href="{% url 'core:post_delete' post.id %}" style="color: red; margin-bottom: 10px"> Delete post </a>
-
-<!--MHT-->
-{% endif %}
-<!--MHT-->
 
 
 
@@ -20,21 +12,37 @@
 <!-- МНТ-->
 
 <div class="post_detail">
-    <h1>Post detail page</h1>
-    <h1>{{ post }}</h1>
+<!--    <h1>Post detail page</h1>-->
 
-<!--    создать класс для картинок внутри поста-->
+
     {% if post.image %}
-        <img src="{{ post.image.url }}" alt="здесь должна быть картинка">
+        <img class="post_detail_picture" src="{{ post.image.url }}" alt="здесь должна быть картинка">
     {% endif %}
-<!--    создать класс для картинок внутри поста-->
 
-    <div class="post_body">{{post.body}}</div>
+    <!--MHT-->
+{% if user == post.author or user.username == 'admin' %}
+<!--MHT-->
+    <br>
+    <div>
+    <a class='delete_post' href="{% url 'core:post_delete' post.id %}" > Delete post </a>
+    </div>
+<!--MHT-->
+{% endif %}
+<!--MHT-->
 
-    <h1>Comments:</h1>
-    <div class="post_comments">
+<!--    <h1>{{ post }}</h1>-->
+    <div class="post-title">{{post.title}}</div>
+    <div style="font-size:20px;">Author: {{post.author}}</div>
+    <br>
+    <div class="post-body">{{post.body}}</div>
+
+    <br>
+
+<!--    <h3>Comments:</h3>-->
+    <p style="font-size:20px;">Comments: </p>
+    <div>
         {% for comment in post.comments.all %}
-        <li>{{comment}} | {{comment.author}}</li>
+        <li class="post_comments">{{comment.author}}: {{comment}} </li>
         {% endfor %}
     </div>
 
