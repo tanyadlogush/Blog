@@ -4,13 +4,11 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 DEBUG = os.getenv("DJANGO_DEBUG", default=False)
 
 ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', default='*,').split(',')
-
 
 # Application definition
 INSTALLED_APPS = [
@@ -20,7 +18,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core'
+    'core',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -95,7 +94,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 STATIC_URL = '/static/'
@@ -105,8 +103,11 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# Admin
+ADMIN_URL = os.getenv('ADMIN_URL', default='admin/')
 
 # Accounts
 LOGIN_REDIRECT_URL = 'core:home_page'
 LOGOUT_REDIRECT_URL = 'core:home_page'
 
+AUTH_USER_MODEL = 'accounts.CustomUser'

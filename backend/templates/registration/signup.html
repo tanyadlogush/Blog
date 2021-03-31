@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    You have already signed in
+{% endblock content %}
+
+
+{% block not_auth_content %}
+
+    <h1>Sign Up page</h1>
+    <form method="post">
+        {% csrf_token%}
+        {{form}}
+
+        <button type="submit">Sign Up</button>
+    </form>
+
+{% endblock not_auth_content %}

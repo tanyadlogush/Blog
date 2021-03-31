@@ -4,9 +4,6 @@
 {% block content %}
 
 
-
-
-
 <!-- МНТ-->
 {% block not_auth_content %}
 <!-- МНТ-->
@@ -25,6 +22,10 @@
     <br>
     <div>
     <a class='delete_post' href="{% url 'core:post_delete' post.id %}" > Delete post </a>
+    <br> <br>
+    {% if user == post.author %}
+        <a class='delete_post' href="{% url 'core:post_update' post.id %}" > Update post </a>
+    {% endif %}
     </div>
 <!--MHT-->
 {% endif %}
